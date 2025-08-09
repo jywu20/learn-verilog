@@ -25,6 +25,7 @@ int main(int argc, char **argv)
     // The simulation loop.
     // The input signals, rst and clk, can be set however we'd like.
     top->rst = 1;
+    // We shouldn't do this.
     top->overflow = 1;
     for (sim_time = 0; sim_time < SIM_TIME_MAX; sim_time++) {
         // The unit of sim_time is half the clock period. 

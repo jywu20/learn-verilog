@@ -8,6 +8,8 @@ module counter #(
     // In this example we use a rather small register as the counter,
     // and see how overflow happens.
     output reg [DIGITS:0] f,
+    // Note that this variable'initial value can't be specified here.
+    // In simulation we can alternate this value.
     output reg overflow
 );
     always_ff @(posedge clk) begin
