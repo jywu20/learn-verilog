@@ -1,0 +1,23 @@
+/* verilator lint_off VARHIDDEN */
+
+module counter #(
+    parameter DIGITS = 4
+) (
+    input clk,
+    input rst,
+    // In this example we use a rather small register as the counter,
+    // and see how overflow happens.
+    output reg [DIGITS:0] f,
+    output reg overflow
+);
+    always_ff @(posedge clk) begin
+        if (!rst) begin
+            f <= 0; 
+        end else if (f == 2**DIGITS - 1) begin
+            overflow <= 1;
+        end else begin
+            overflow <= 0;
+            f <= f + 1;
+        end
+    end
+endmodule
