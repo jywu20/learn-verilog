@@ -3,10 +3,10 @@
 parameter DIGITS = 3;
 
 module top(
-    input clk,
-    input rst,
-    output reg [DIGITS:0] f,
-    output reg overflow
+    input  logic clk,
+    input  logic rst,
+    output logic [DIGITS:0] f,
+    output logic overflow
 );
     counter#(DIGITS) my_counter (clk, rst, f, overflow);
 endmodule
